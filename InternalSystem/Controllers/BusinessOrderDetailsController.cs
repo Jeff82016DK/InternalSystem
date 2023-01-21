@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using InternalSystem.Models;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace InternalSystem.Controllers
 {
@@ -38,6 +39,50 @@ namespace InternalSystem.Controllers
 
 
 
+        //自己寫的
+        // PUT: api/BusinessOrderDetails/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{ordid}/{oplid}")]
+        public async Task<IActionResult> PutOrderDetail(int ordid ,int oplid, BusinessOrderDetail businessOrderDetail)
+        {
+
+
+            var data = _context.BusinessOrderDetails
+                .Where(od => od.OrderId == ordid).ToList();
+
+            foreach (var item in data)
+            {
+                item.OptionalId = 2;
+                _context.BusinessOrderDetails.Update(item);
+            }
+            await _context.SaveChangesAsync();
+
+
+            //if (id != businessOrderDetail.OdId)
+            //{
+            //    return BadRequest();
+            //}
+
+            //_context.Entry(businessOrderDetail).State = EntityState.Modified;
+
+            //try
+            //{
+            //    await _context.SaveChangesAsync();
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    if (!BusinessOrderDetailExists(id))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
+
+            return NoContent();
+        }
 
 
 
@@ -51,10 +96,8 @@ namespace InternalSystem.Controllers
 
 
 
-
-
-        // GET: api/BusinessOrderDetails
-        [HttpGet]
+    // GET: api/BusinessOrderDetails
+    [HttpGet]
         public async Task<ActionResult<IEnumerable<BusinessOrderDetail>>> GetBusinessOrderDetails()
         {
             return await _context.BusinessOrderDetails.ToListAsync();
