@@ -40,19 +40,19 @@ namespace InternalSystem.Controllers
 
 
         //自己寫的
-        // PUT: api/BusinessOrderDetails/5
+        // PUT: api/BusinessOrderDetails/25/3
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{ordid}/{oplid}")]
-        public async Task<IActionResult> PutOrderDetail(int ordid ,int oplid, BusinessOrderDetail businessOrderDetail)
+        public async Task<ActionResult<dynamic>> PutOrderDetail(int ordid ,int oplid)
         {
 
 
             var data = _context.BusinessOrderDetails
-                .Where(od => od.OrderId == ordid).ToList();
+                .Where(od => od.OrderId == ordid);
 
             foreach (var item in data)
             {
-                item.OptionalId = 2;
+                item.OptionalId = oplid;
                 _context.BusinessOrderDetails.Update(item);
             }
             await _context.SaveChangesAsync();
@@ -81,7 +81,7 @@ namespace InternalSystem.Controllers
             //    }
             //}
 
-            return NoContent();
+            return data.ToList();
         }
 
 
