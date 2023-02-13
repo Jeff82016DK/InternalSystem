@@ -681,7 +681,10 @@
                                 this.accordionOne.push(g.data[idx].orderNumber);
                                 if (x.ppname == "製程C-性能測試" && x.ppstate == "已完成") {
                                     x.pparea = "";
-                                    x.ppname = "生產完畢";
+                                    x.ppname = "生產完畢，等待交車";
+                                }
+                                if (x.deadlineDateTime==null) {
+                                    x.deadlineDateTime = "N/A";
                                 }
                                 let elapseddays = (new Date() - new Date(x.orderDateTime)) / 86400000;
                                 elapseddays = Math.round(elapseddays * 10) / 10;  //四捨五入至小數點下1位
