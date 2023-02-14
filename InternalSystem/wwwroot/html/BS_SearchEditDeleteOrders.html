@@ -1096,6 +1096,8 @@
 
                 axios.get('/api/BusinessOrders/hidden').then(g => this.ordernumhidden.num = g.data);
                 this.limit = JSON.parse(sessionStorage.getItem("LoginInf"));
+                this.ordernum = JSON.parse(sessionStorage.getItem("queryord"));
+                
                 //console.log(this.limit.DepID);
             }
         }).mount('#divedit');

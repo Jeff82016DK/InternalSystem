@@ -557,7 +557,10 @@
                                             <div :id="accordionOne[key]"
                                                  class="accordion-collapse collapse">
                                                 <div class="accordion-body">
-                                                    <p class="mt-4">訂單編號:{{o.orderNumber}}</p>
+                                                    <div class="d-flex">
+                                                        <p class="mt-4">訂單編號:{{o.orderNumber}}</p>
+                                                        <button class="btn btn-primary ms-4 mt-2" @click="query(o)">查詢</button>
+                                                    </div>
                                                     <p>車款:{{o.detail[0].optionalName.substring(4)}}</p>
                                                     <p>車漆顏色:{{o.detail[1].optionalName}}</p>
                                                     <p>內裝材質:{{o.detail[2].optionalName}}</p>
@@ -568,7 +571,6 @@
                                                     <p>天窗:   {{o.detail[7].optionalName}}</p>
                                                     <p>多媒體: {{o.detail[8].optionalName}}</p>
                                                     <p>價格: {{o.price}}</p>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -671,6 +673,11 @@
                                 return this.filtered;
                             }
                         });
+                    },
+                    query(e) {
+                        console.log(e.orderNumber);
+                        sessionStorage.setItem("queryord", JSON.stringify(e.orderNumber));
+                        //window.location = "BS_SearchEditDeleteOrders.html";
                     }
                 },
                 mounted() {
