@@ -23,7 +23,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>BMW內部系統</title>
 
     <meta name="description" content="" />
 
@@ -448,7 +448,7 @@
                         <div id="app">
                             <!-- 我是成功的吐司 -->
                             <div class="bs-toast toast fade show bg-success mx-auto toast-placement-ex mt-3 me-3 top-0 end-0 " role="alert"
-                                aria-live="assertive" aria-atomic="true" id="toastSuc">
+                                 aria-live="assertive" aria-atomic="true" id="toastSuc">
                                 <div class="toast-header">
                                     <i class="bx bx bxs-bell bx-tada me-2"></i>
                                     <div class="me-auto fw-bold fs-3">通知</div>
@@ -461,7 +461,7 @@
                             </div>
                             <!-- 錯誤的吐司 -->
                             <div class="bs-toast toast fade show bg-danger mx-auto toast-placement-ex mt-3 me-3 top-0 end-0 " role="alert"
-                                aria-live="assertive" aria-atomic="true" id="toastErr">
+                                 aria-live="assertive" aria-atomic="true" id="toastErr">
                                 <div class="toast-header">
                                     <i class="bx bx bxs-bell bx-tada me-2"></i>
                                     <div class="me-auto fw-bold fs-3">通知</div>
@@ -472,20 +472,48 @@
                                     ❌&nbsp;{{text}}
                                 </div>
                             </div>
-                            
+                    
                             <div class="card mb-4 m-4 " v-for="processList in PDProcessList">
                                 <div class="row card-body">
-                                    <label id="optionalName" for="" class="col-4 fs-4">型號: {{processList.optionalName}}</label>
-                                    <label id="orderNumber" for="" class="col-4 fs-4">訂單號碼: {{processList.orderNumber}}</label>
-                                    <label for="" class="col-4 fs-4 ">開始生產日期: {{processList.starDate}}</label>
+                                    <label id="optionalName" for="" class="col-3 fs-4">型號: {{processList.optionalName}}</label>
+                                    <label id="orderNumber" for="" class="col-3 fs-4">訂單號碼: {{processList.orderNumber}}</label>
+                                    <label for="" class="col-3 fs-4 ">開始生產日期: {{processList.starDate}}</label>
+                                    <label for="" class="col-3 fs-4 ">出貨日期: {{processList.deadlineDateTime}}</label>
                                     <div class="row">
                                         <label id="processName" for="" class="col-3 fs-4 my-3">生產: {{processList.processName}}</label>
                                         <label id="areaName" for="" class="col-2 text-center rounded fs-4 my-3 fw-bold bg-label-primary">廠區: {{processList.areaName}}</label>
                                     </div>
-
+                                    <!-- ★Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content border border-5">
+                                                <div class="modal-header mb-3">
+                                                    <p class="modal-title fs-2 fw-bold" id="ModalLabel" style="border-left: 10pt solid #666EE8;border-radius: 4px;">
+                                                        &nbsp製程完成確認
+                                                    </p>
+                                                </div>
+                                                <div class="row justify-content-center">
+                                                    <hr class="col-10">
+                                                </div>
+                                                <div class="modal-body text-start mt-0">
+                                                    <p class="alert alert-danger fs-4 fw-bold col-5 text-center mx-auto mt-5">⚠️確認製程完成?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary fs-4 fw-bold" v-on:click="Finish(processList)">
+                                                        確認報工
+                                                    </button>
+                                                    <button type="button" class="btn btn-secondary fs-4 fw-bold" data-bs-dismiss="modal">關閉</button>
+                                                    <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-11 d-md-flex justify-content-md-end">
-                                        <button type="button" class="btn btn-outline-dark" v-on:click="Finish(processList)"
-                                                v-if="limit.PositionId>5">製程完成</button>
+                                        <button type="button" class="btn btn-outline-dark"
+                                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                v-if="limit.PositionId>=4">
+                                            製程完成
+                                        </button>
                                         <a href="./PD_ReportContent.html" type="button" class="btn btn-outline-dark mx-4" v-on:click="Enter(processList)">報工</a>
                                         <a href="./PD_MakeClass.html" type="button" class="btn btn-outline-dark ">取消</a>
                                     </div>
@@ -551,12 +579,15 @@
                             for (var i = 0; i < this.PDProcessList.length; i++) {
                                 if (this.PDProcessList[i].optionalId == 1) {
                                     this.PDProcessList[i].optionalName = this.PDProcessList[i].optionalName.slice(4);
+                                    this.PDProcessList[i].deadlineDateTime = this.PDProcessList[i].deadlineDateTime.slice(0, 10);
                                 }
                                 if (this.PDProcessList[i].optionalId == 2) {
                                     this.PDProcessList[i].optionalName = this.PDProcessList[i].optionalName.slice(4);
+                                    this.PDProcessList[i].deadlineDateTime = this.PDProcessList[i].deadlineDateTime.slice(0, 10);
                                 }
                                 if (this.PDProcessList[i].optionalId == 3) {
                                     this.PDProcessList[i].optionalName = this.PDProcessList[i].optionalName.slice(4);
+                                    this.PDProcessList[i].deadlineDateTime = this.PDProcessList[i].deadlineDateTime.slice(0, 10);
                                 }
                             }
                         })
@@ -579,9 +610,8 @@
                         }
 
                         if (f.processId == 3) {
-                            if (confirm('確定送出?'))
-                                //put 原表狀態改成3
-                                this.processput.orderId = f.orderId
+                            //put 原表狀態改成3
+                            this.processput.orderId = f.orderId
                             this.processput.processId = f.processId
                             this.processput.areaId = f.areaId
                             this.processput.starDate = f.starDate
@@ -613,51 +643,50 @@
                                 })
 
                         } else {
-                            if (confirm('確定送出?')) {
-                                //post 新建第二製程
-                                this.Processpost.orderId = f.orderId
-                                this.Processpost.processId = f.processId + 1
-                                this.Processpost.areaId = null
-                                this.Processpost.starDate = f.starDate
-                                this.Processpost.endDate = null
-                                this.Processpost.statusId = 1
-                                axios.post('https://localhost:44319/api/ProductionProcessLists', this.Processpost)
+                            //post 新建第二製程
+                            this.Processpost.orderId = f.orderId
+                            this.Processpost.processId = f.processId + 1
+                            this.Processpost.areaId = null
+                            this.Processpost.starDate = f.starDate
+                            this.Processpost.endDate = null
+                            this.Processpost.statusId = 1
+                            axios.post('https://localhost:44319/api/ProductionProcessLists', this.Processpost)
 
 
-                                //put 原表狀態改成3
-                                this.processput.orderId = f.orderId
-                                this.processput.processId = f.processId
-                                this.processput.areaId = f.areaId
-                                this.processput.starDate = f.starDate
-                                this.processput.endDate = `${yyyy}-${mm}-${dd}`
-                                this.processput.statusId = 3
-                                axios.put('https://localhost:44319/api/ProductionProcessLists/' + this.processput.orderId, this.processput)
-                                    .then(y => console.log(y))
+                            //put 原表狀態改成3
+                            this.processput.orderId = f.orderId
+                            this.processput.processId = f.processId
+                            this.processput.areaId = f.areaId
+                            this.processput.starDate = f.starDate
+                            this.processput.endDate = `${yyyy}-${mm}-${dd}`
+                            this.processput.statusId = 3
+                            axios.put('https://localhost:44319/api/ProductionProcessLists/' + this.processput.orderId, this.processput)
+                                .then(y => console.log(y))
 
-                                //put 更改監控狀態
-                                console.log(`/api/MonitoringProcessAreaStatus/${this.processput.areaId}/${this.processput.processId}/${this.car.optionalName}`)
-                                axios.get(`/api/MonitoringProcessAreaStatus/${this.processput.areaId}/${this.processput.processId}/${this.car.optionalName}`)
-                                    .then(g => {
-                                        //指派廠區後將監控狀態從待指派改為正常
-                                        var rr = g.data.monitorId;
-                                        //console.log(rr)
-                                        axios.get('/api/MonitoringProcessAreaStatus/' + rr).then(g => {
-                                            //console.log(g.data);
-                                            this.monitor = g.data;
-                                            this.monitor.status = '待指派';
-                                            console.log(this.monitor)
-                                            axios.put('/api/MonitoringProcessAreaStatus/' + rr, this.monitor).then(p => {
-                                                console.log(p);
-                                                this.text = '成功送出';
-                                                $("#toastSuc").fadeIn("fast");
-                                                setTimeout(() => {
-                                                    $("#toastSuc").fadeOut();
-                                                    window.location = "PD_LineSelect.html";
-                                                }, 1000);
-                                            })
+                            //put 更改監控狀態
+                            console.log(`/api/MonitoringProcessAreaStatus/${this.processput.areaId}/${this.processput.processId}/${this.car.optionalName}`)
+                            axios.get(`/api/MonitoringProcessAreaStatus/${this.processput.areaId}/${this.processput.processId}/${this.car.optionalName}`)
+                                .then(g => {
+                                    //指派廠區後將監控狀態從待指派改為正常
+                                    var rr = g.data.monitorId;
+                                    //console.log(rr)
+                                    axios.get('/api/MonitoringProcessAreaStatus/' + rr).then(g => {
+                                        //console.log(g.data);
+                                        this.monitor = g.data;
+                                        this.monitor.status = '待指派';
+                                        console.log(this.monitor)
+                                        axios.put('/api/MonitoringProcessAreaStatus/' + rr, this.monitor).then(p => {
+                                            console.log(p);
+                                            this.text = '成功送出';
+                                            $("#toastSuc").fadeIn("fast");
+                                            setTimeout(() => {
+                                                $("#toastSuc").fadeOut();
+                                                window.location = "PD_LineSelect.html";
+                                            }, 1000);
                                         })
                                     })
-                            }
+                                })
+
 
                             //window.location = "PD_MakeClass.html"
                         }

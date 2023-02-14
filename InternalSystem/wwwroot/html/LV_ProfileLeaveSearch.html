@@ -23,7 +23,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>BMW內部系統</title>
 
     <meta name="description" content="" />
     <!-- vue -->
@@ -484,7 +484,7 @@
                                     <div class="col d-flex mt-5 mb-4 mx-4">
                                         <label for="html5-month-input" class="badge rounded-pill bg-primary fs-4 fw-bold mylLable">請假月份</label>
                                         <div class="col-3 ms-2">
-                                            <input class="form-control fs-5 myinput" type="month" v-model="leavesearch.month" id="html5-month-input" />
+                                            <input class="form-control fs-5 myinput" type="month" v-model="leavesearch.month" id="html5-month-input" @click="date"/>
                                         </div>
                                         <div class="col ms-5">
                                             <button type="button" @click="searchbtn" class="btn btn-outline-primary me-3 fs-4 fw-bold border-3">查詢</button>
@@ -512,8 +512,8 @@
                                     </thead>
                                     <tbody class="table-border-bottom-0" v-for="item in leavelist">
                                         <tr>
-                                            <td><strong class="fs-5 fw-bold">{{item.employeeName}}</strong></td>
-                                            <td class="fs-5 fw-bold">{{item.employeeNumber}}</td>
+                                            <td><strong class="fs-4 fw-bold">{{item.employeeName}}</strong></td>
+                                            <td class="fs-4 fw-bold">{{item.employeeNumber}}</td>
                                             <td>
                                                 <span class="fs-5 fw-bold">{{item.startDate}} - {{item.startTime}}</span>
                                             </td>
@@ -606,6 +606,9 @@
                 }
             },
             methods: {
+                date: function () {
+                    this.leavesearch.month = "2023-02"
+                },
                 searchbtn: function () {
 
                     this.employeedata = JSON.parse(sessionStorage.getItem("LoginInf"));
