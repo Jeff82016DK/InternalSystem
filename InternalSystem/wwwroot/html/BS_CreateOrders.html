@@ -493,7 +493,7 @@
                                             <div class="col-4">
                                                 <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="cartype">車款</label>
                                                 <select id="cartype"
-                                                        class="form-select fs-5 color-dropdown mb-3"
+                                                        class="form-select fs-5 fw-bold color-dropdown mb-3"
                                                         v-model="cartypeone"
                                                         @change="showphoto">
                                                     <option disabled value="999">請選擇車款</option>
@@ -507,7 +507,7 @@
                                             <div class="col-4">
                                                 <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">車款價格</label>
                                                 <input type="text"
-                                                       class="form-control mb-3 fs-5"
+                                                       class="form-control mb-3 fs-5 fw-bold"
                                                        id=""
                                                        readonly
                                                        v-model="cartypeone.price" />
@@ -516,7 +516,7 @@
                                             <div class="col-4">
                                                 <div v-if="photoseen.type" style="height: 120px; width: 300px;">
                                                     <img :src="srcphoto.type"
-                                                         class="d-block rounded"
+                                                         class="d-block rounded fs-5 fw-bold fw-bold"
                                                          style="height: 100%; width: 100%; object-fit: contain; "
                                                          alt="car" />
                                                 </div>
@@ -539,7 +539,7 @@
                                             <div class="col-4">
                                                 <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="carcolor">車漆顏色</label>
                                                 <select id="carcolor"
-                                                        class="form-select fs-5"
+                                                        class="form-select fs-5 fw-bold fw-bold"
                                                         v-model="carcolorone"
                                                         @change="showphoto">
                                                     <option disabled value="999">請選擇車漆顏色</option>
@@ -552,7 +552,7 @@
                                             <div class="col-4">
                                                 <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">選配價格</label>
                                                 <input type="text"
-                                                       class="form-control mb-3 fs-5"
+                                                       class="form-control mb-3 fs-5 fw-bold fw-bold"
                                                        id=""
                                                        readonly
                                                        v-model="carcolorone.price" />
@@ -573,7 +573,7 @@
                                         <div class="row py-1">
                                             <div class="col-4">
                                                 <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="texture">內裝材質</label>
-                                                <select class="form-select fs-5 placement-dropdown"
+                                                <select class="form-select fs-5 fw-bold fw-bold placement-dropdown"
                                                         id="texture"
                                                         v-model="cartextureone"
                                                         @change="showphoto">
@@ -587,7 +587,7 @@
                                             <div class="col-4">
                                                 <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">選配價格</label>
                                                 <input type="text"
-                                                       class="form-control mb-3 fs-5"
+                                                       class="form-control mb-3 fs-5 fw-bold fw-bold"
                                                        id=""
                                                        readonly
                                                        v-model="cartextureone.price" />
@@ -595,7 +595,7 @@
                                             <div class="col-4">
                                                 <div v-if="photoseen.texture" style="height: 100px; width: 300px;">
                                                     <img :src="srcphoto.texture"
-                                                         class="d-block rounded"
+                                                         class="d-block rounded fs-5 fw-bold fw-bold"
                                                          style="height: 100%; width: 100%; object-fit: contain; "
                                                          alt="texture" />
                                                 </div>
@@ -608,7 +608,7 @@
                                         <div class="row py-1">
                                             <div class="col-4">
                                                 <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="wheel">輪圈款式</label>
-                                                <select class="form-select fs-5 placement-dropdown"
+                                                <select class="form-select fs-5 fw-bold placement-dropdown fs-5 fw-bold fw-bold"
                                                         id="wheel"
                                                         v-model="carwheelone"
                                                         @change="showphoto">
@@ -622,7 +622,7 @@
                                             <div class="col-4">
                                                 <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">選配價格</label>
                                                 <input type="text"
-                                                       class="form-control mb-3 fs-5"
+                                                       class="form-control mb-3 fs-5 fw-bold fw-bold"
                                                        id=""
                                                        readonly
                                                        v-model="carwheelone.price" />
@@ -630,7 +630,7 @@
                                             <div class="col-4">
                                                 <div v-if="photoseen.wheel" style="height: 100px; width: 300px;">
                                                     <img :src="srcphoto.wheel"
-                                                         class="d-block rounded"
+                                                         class="d-block rounded "
                                                          style="height: 100%; width: 100%; object-fit: contain; "
                                                          alt="wheel" />
                                                 </div>
@@ -643,7 +643,7 @@
                                         <div class="row py-1">
                                             <div class="col-4">
                                                 <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="plaque">飾板</label>
-                                                <select class="form-select fs-5 placement-dropdown"
+                                                <select class="form-select fs-5 fw-bold fw-bold placement-dropdown"
                                                         id="plaque"
                                                         v-model="carplaqueone"
                                                         @change="showphoto">
@@ -657,7 +657,7 @@
                                             <div class="col-4">
                                                 <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">選配價格</label>
                                                 <input type="text"
-                                                       class="form-control mb-3 fs-5"
+                                                       class="form-control mb-3 fs-5 fw-bold fw-bold"
                                                        id=""
                                                        readonly
                                                        v-model="carplaqueone.price" />
@@ -665,7 +665,7 @@
                                             <div class="col-4">
                                                 <div v-if="photoseen.plaque" style="height: 100px; width: 300px;">
                                                     <img :src="srcphoto.plaque"
-                                                         class="d-block rounded"
+                                                         class="d-block rounded fs-5 fw-bold fw-bold"
                                                          style="height: 100%; width: 100%; object-fit: contain; "
                                                          alt="plaque" />
                                                 </div>
@@ -677,7 +677,7 @@
                                         <div class="row py-1">
                                             <div class="col-4">
                                                 <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="light">頭燈款式</label>
-                                                <select class="form-select fs-5 placement-dropdown"
+                                                <select class="form-select fs-5 fw-bold fw-bold placement-dropdown"
                                                         id="light"
                                                         v-model="carlightone"
                                                         @change="showphoto">
@@ -691,7 +691,7 @@
                                             <div class="col-4">
                                                 <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">選配價格</label>
                                                 <input type="text"
-                                                       class="form-control mb-3 fs-5"
+                                                       class="form-control mb-3 fs-5 fw-bold fw-bold"
                                                        id=""
                                                        readonly
                                                        v-model="carlightone.price" />
@@ -700,7 +700,7 @@
                                             <div class="col-4">
                                                 <div v-if="photoseen.light" style="height: 100px; width: 300px;">
                                                     <img :src="srcphoto.light"
-                                                         class="d-block rounded"
+                                                         class="d-block rounded fs-5 fw-bold fw-bold"
                                                          style="height: 100%; width: 100%; object-fit: contain; "
                                                          alt="light" />
                                                 </div>
@@ -715,7 +715,7 @@
                                         <div class="row py-1">
                                             <div class="col-4">
                                                 <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="saddle">中央鞍座</label>
-                                                <select class="form-select fs-5 placement-dropdown"
+                                                <select class="form-select fs-5 fw-bold fw-bold placement-dropdown"
                                                         id="saddle"
                                                         v-model="carsaddleone"
                                                         @change="showphoto">
@@ -729,7 +729,7 @@
                                             <div class="col-4">
                                                 <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">選配價格</label>
                                                 <input type="text"
-                                                       class="form-control mb-3 fs-5"
+                                                       class="form-control mb-3 fs-5 fw-bold fw-bold"
                                                        id=""
                                                        readonly
                                                        v-model="carsaddleone.price" />
@@ -738,7 +738,7 @@
                                             <div class="col-4">
                                                 <div v-if="photoseen.saddle" style="height: 100px; width: 300px;">
                                                     <img :src="srcphoto.saddle"
-                                                         class="d-block rounded"
+                                                         class="d-block rounded fs-5 fw-bold fw-bold"
                                                          style="height: 100%; width: 100%; object-fit: contain; "
                                                          alt="saddle" />
                                                 </div>
@@ -752,7 +752,7 @@
                                         <div class="row py-1">
                                             <div class="col-4">
                                                 <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="sunroof">天窗</label>
-                                                <select class="form-select fs-5 placement-dropdown"
+                                                <select class="form-select fs-5 fw-bold fw-bold placement-dropdown"
                                                         id="sunroof"
                                                         v-model="carsunroofone"
                                                         @change="showphoto">
@@ -766,7 +766,7 @@
                                             <div class="col-4">
                                                 <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">選配價格</label>
                                                 <input type="text"
-                                                       class="form-control mb-3 fs-5"
+                                                       class="form-control mb-3 fs-5 fw-bold fw-bold"
                                                        id=""
                                                        readonly
                                                        v-model="carsunroofone.price" />
@@ -788,7 +788,7 @@
                                         <div class="row py-1">
                                             <div class="col-4">
                                                 <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="media">多媒體</label>
-                                                <select class="form-select fs-5 placement-dropdown"
+                                                <select class="form-select fs-5 fw-bold fw-bold placement-dropdown"
                                                         id="media"
                                                         v-model="carmediaone"
                                                         @change="showphoto">
@@ -802,7 +802,7 @@
                                             <div class="col-4">
                                                 <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">選配價格</label>
                                                 <input type="text"
-                                                       class="form-control mb-3 fs-5"
+                                                       class="form-control mb-3 fs-5 fw-bold fw-bold"
                                                        id=""
                                                        readonly
                                                        v-model="carmediaone.price" />
@@ -823,7 +823,7 @@
                                         <div class="col-4 ms-1">
                                             <label for="" class="badge rounded-pill bg-primary fs-4 mb-1 fw-bold">小計</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="cnt"
@@ -844,7 +844,7 @@
                                         <div class="col-md-4">
                                             <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="area">代理商地區</label>
                                             <select id="area"
-                                                    class="form-select fs-5 color-dropdown mb-3"
+                                                    class="form-select fs-5 fw-bold fw-bold color-dropdown mb-3"
                                                     v-model="agentone">
                                                 <option disabled value="999">請選擇代理商地區</option>
                                                 <option v-for="one in agent"
@@ -856,7 +856,7 @@
                                         <div class="col-md-4">
                                             <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">代理商地址</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="agentone.address" />
@@ -864,7 +864,7 @@
                                         <div class="col-md-4">
                                             <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">代理商電話</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="agentone.phone" />
@@ -873,7 +873,7 @@
                                         <div class="col-md-4">
                                             <label @click="oneclick" for="deadline" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">預計交付時間</label>
                                             <input type="datetime-local"
-                                                   class="form-control fs-5"
+                                                   class="form-control fs-5 fw-bold fw-bold"
                                                    id="deadline"
                                                    v-model="deadline" />
                                         </div>
@@ -907,7 +907,7 @@
                                         <div class="col-md-6">
                                             <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">車款</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="cartypeone.optionalName" />
@@ -915,7 +915,7 @@
                                         <div class="col-md-6">
                                             <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">車漆顏色</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="carcolorone.optionalName" />
@@ -923,7 +923,7 @@
                                         <div class="col-md-6">
                                             <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="">內裝材質</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="cartextureone.optionalName" />
@@ -931,7 +931,7 @@
                                         <div class="col-md-6">
                                             <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="">輪圈款式</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="carwheelone.optionalName" />
@@ -939,7 +939,7 @@
                                         <div class="col-md-6">
                                             <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="">飾板</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="carplaqueone.optionalName" />
@@ -947,7 +947,7 @@
                                         <div class="col-md-6">
                                             <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="">頭燈款式</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="carlightone.optionalName" />
@@ -955,7 +955,7 @@
                                         <div class="col-md-6">
                                             <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="">中央鞍座</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="carsaddleone.optionalName" />
@@ -963,7 +963,7 @@
                                         <div class="col-md-6">
                                             <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="">天窗</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="carsunroofone.optionalName" />
@@ -971,7 +971,7 @@
                                         <div class="col-md-6">
                                             <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="">多媒體車機</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="carmediaone.optionalName" />
@@ -979,7 +979,7 @@
                                         <div class="col-md-6">
                                             <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">小計</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="cnt" />
@@ -997,7 +997,7 @@
                                         <div class="col-md-4">
                                             <label class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold" for="">代理商地區</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="agentone.areaName" />
@@ -1005,7 +1005,7 @@
                                         <div class="col-md-4">
                                             <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">代理商地址</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="agentone.address" />
@@ -1013,7 +1013,7 @@
                                         <div class="col-md-4">
                                             <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">代理商電話</label>
                                             <input type="text"
-                                                   class="form-control mb-3 fs-5"
+                                                   class="form-control mb-3 fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="agentone.phone" />
@@ -1021,7 +1021,7 @@
                                         <div class="col-md-4">
                                             <label for="" class="badge rounded-pill bg-label-primary fs-4 mb-1 fw-bold">預計交付時間</label>
                                             <input type="datetime-local"
-                                                   class="form-control fs-5"
+                                                   class="form-control fs-5 fw-bold"
                                                    id=""
                                                    readonly
                                                    v-model="deadline" />
